@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p v-text="hello"></p>
-    <p v-html="hello"></p>
-    {{ status ? 'success' : 'false' }}
+    <ul>
+      <li v-for="item in list"> {{ item.name }} - {{ item.price }}</li>
+    </ul>
   </div>
 </template>
 
@@ -11,8 +11,16 @@ export default {
   data () {
     return {
       hello: '<strong>world</strong>',
-      num: 1,
-      status: true
+      list: [
+        {
+          name: 'apple',
+          price: 34
+        },
+        {
+          name: 'banana',
+          price: 56
+        }
+      ]
     }
   }
 }
