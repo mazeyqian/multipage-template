@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   data () {
     return {
@@ -26,10 +27,10 @@ export default {
   },
   methods: {
     addItem () {
-      this.list[1] = {
+      Vue.set(this.list, 1, {
         name: 'pinaapple',
         price: 256
-      }
+      })
     }
   }
 }
