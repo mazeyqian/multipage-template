@@ -1,24 +1,35 @@
 <template>
   <div>
-    <componentA v-for="(value, key) in objList" :key="key"></componentA>
+    <ul>
+      <li v-for="item in list"> {{ item.name }} - {{ item.price }}</li>
+    </ul>
+    <button v-on:click="addItem">addItem</button>
   </div>
 </template>
 
 <script>
-import componentA from './components/a.vue'
 export default {
-  components: {
-    componentA: componentA // es6 componentA
-  },
   data () {
     return {
       hello: '<strong>world</strong>',
-      objList: {
-        name: 'apple',
-        price: 34,
-        color: 'red',
-        weight: 14
-      }
+      list: [
+        {
+          name: 'apple',
+          price: 34
+        },
+        {
+          name: 'banana',
+          price: 56
+        }
+      ]
+    }
+  },
+  methods: {
+    addItem: function () {
+      this.list.push({
+        name: 'pinaapple',
+        price: 256
+      })
     }
   }
 }
