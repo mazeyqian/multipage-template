@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in list"> {{ item.name }} - {{ item.price }} - {{ index }}</li>
+      <li v-for="(item, index) in list" :class="{odd:index % 2}"> {{ item.name }} - {{ item.price }} - {{ index }}</li>
     </ul>
   </div>
 </template>
