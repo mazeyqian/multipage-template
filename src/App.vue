@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="item in list"> {{ item.name }} - {{ item.price }}</li>
+      <li v-for="item in list" v-text="item.name + '-' + item.price"></li>
     </ul>
   </div>
 </template>
