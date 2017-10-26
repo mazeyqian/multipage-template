@@ -7,7 +7,7 @@ var myHeaderChild = {
 }
 
 var myHeader = {
-  template: '<p><my-header-child></my-header-child>this {{}} is my header</p>',
+  template: '<p v-html="test" v-on:keydown.enter=""><component :is=""></component>this {{}} is my header</p><keep-alive><router-view></router-view></keep-alive>',
   components: {
     'my-header-child': myHeaderChild
   },
@@ -19,7 +19,7 @@ var myHeader = {
   }
 }
 /* eslint-disable no-new */
-new Vue({
+var root = new Vue({
   el: '#app',
   data: {
     word: 'hello world2'
@@ -27,4 +27,9 @@ new Vue({
   components: {
     'my-header': myHeader
   }
+})
+
+root.$data
+root.$on('emit', function () {
+
 })
