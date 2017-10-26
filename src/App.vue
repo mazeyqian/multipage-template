@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(item, index) in list" :class="{odd:index % 2}"> {{ item.name }} - {{ item.price }} - {{ index }}</li>
+      <li v-for="value in objList"> {{ value }} </li>
     </ul>
   </div>
 </template>
@@ -11,16 +11,12 @@ export default {
   data () {
     return {
       hello: '<strong>world</strong>',
-      list: [
-        {
-          name: 'apple',
-          price: 34
-        },
-        {
-          name: 'banana',
-          price: 56
-        }
-      ]
+      objList: {
+        name: 'apple',
+        price: 34,
+        color: 'red',
+        weight: 14
+      }
     }
   }
 }
