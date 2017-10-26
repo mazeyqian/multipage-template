@@ -1,16 +1,15 @@
 <template>
   <div>
-    <componentA></componentA>
-    <ul>
-      <li v-for="(value, key) in objList"> {{ key + '-' + value }} </li>
-    </ul>
+    <componentA v-for="(value, key) in objList" :key="key"></componentA>
   </div>
 </template>
 
 <script>
 import componentA from './components/a.vue'
 export default {
-  components: {componentA},
+  components: {
+    componentA: componentA // es6 componentA
+  },
   data () {
     return {
       hello: '<strong>world</strong>',
