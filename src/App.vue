@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="value in objList"> {{ value }} </li>
+      <li v-for="(value, key) in objList"> {{ key + '-' + value }} </li>
     </ul>
   </div>
 </template>
