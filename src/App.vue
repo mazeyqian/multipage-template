@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="item in list"> {{ item.name }} - {{ item.price }}</li>
+      <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
     <button v-on:click="addItem">addItem</button>
   </div>
