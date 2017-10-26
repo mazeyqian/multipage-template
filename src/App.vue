@@ -25,11 +25,11 @@ export default {
     }
   },
   methods: {
-    addItem: function () {
-      this.list.push({
+    addItem () {
+      this.list[1] = {
         name: 'pinaapple',
         price: 256
-      })
+      }
     }
   }
 }
