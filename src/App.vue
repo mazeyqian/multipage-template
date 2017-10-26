@@ -3,6 +3,7 @@
     <ul>
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
+    <a v-bind:href="link" v-bind:title="hello">to baidu</a>
     <button v-on:click="addItem">addItem</button>
   </div>
 </template>
@@ -12,7 +13,8 @@ import Vue from 'vue'
 export default {
   data () {
     return {
-      hello: '<strong>world</strong>',
+      hello: 'world',
+      link: 'http://www.baidu.com',
       list: [
         {
           name: 'apple',
