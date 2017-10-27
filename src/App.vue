@@ -3,7 +3,7 @@
     <ul>
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
-    <a class="link-href" v-bind:class="className">to baidu</a>
+    <a class="link-href" v-bind:class="[classA, classB]">to baidu</a>
     <button v-on:click="addItem">addItem</button>
   </div>
 </template>
@@ -17,6 +17,8 @@ export default {
       link: 'http://www.baidu.com',
       dataA: 123,
       className: ['red-font', 'big-font'],
+      classA: 'hello',
+      classB: 'world',
       list: [
         {
           name: 'apple',
