@@ -16,10 +16,7 @@ export default {
       hello: 'world',
       link: 'http://www.baidu.com',
       dataA: 123,
-      className: {
-        'red-font': true,
-        'blue-font': false
-      },
+      className: ['red-font', 'big-font'],
       list: [
         {
           name: 'apple',
