@@ -6,13 +6,19 @@
     <a v-if="isPartA">partA</a>
     <a v-else>no data</a>
     <button @click="addItem">addItem</button>
-    <input @keydown.enter="onKeyDown">
+    <input @keydown.13="onKeyDown">
+    <!--指令修改器-->
+    <comA @my-event="onComaMyEvent"></comA>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
+import comA from './components/a'
 export default {
+  components: {
+    comA
+  },
   data () {
     return {
       hello: 'world',
@@ -52,6 +58,9 @@ export default {
     },
     onKeyDown () {
       console.log('on key down')
+    },
+    onComaMyEvent (parmfromA) {
+      console.log('onComaMyEvent+' + parmfromA)
     }
   }
 }
