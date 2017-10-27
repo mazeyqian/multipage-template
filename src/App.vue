@@ -5,6 +5,7 @@
     </ul>
     <a v-if="isPartA">partA</a>
     <a v-show="!isPartA">partB</a>
+    <!--v-show只是display:none v-if是消失-->
     <button v-on:click="addItem">addItem</button>
     <button v-on:click="toggle">toggle</button>
   </div>
