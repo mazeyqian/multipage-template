@@ -6,7 +6,7 @@
     <a v-if="isPartA">partA</a>
     <a v-else>no data</a>
     <button @click="addItem">addItem</button>
-    <button @click="toggle">toggle</button>
+    <input @keydown.enter="onKeyDown">
   </div>
 </template>
 
@@ -49,6 +49,9 @@ export default {
     },
     toggle () {
       this.isPartA = !this.isPartA
+    },
+    onKeyDown () {
+      console.log('on key down')
     }
   }
 }
