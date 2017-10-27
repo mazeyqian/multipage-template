@@ -3,8 +3,10 @@
     <ul>
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
-    <a class="link-href" :style="linkCss">to baidu</a>
+    <a v-if="isPartA">partA</a>
+    <a v-show="!isPartA">partB</a>
     <button v-on:click="addItem">addItem</button>
+    <button v-on:click="toggle">toggle</button>
   </div>
 </template>
 
@@ -20,6 +22,7 @@ export default {
       classA: 'hello',
       classB: 'world',
       hasError: false,
+      isPartA: true,
       linkCss: {
         'color': 'red',
         'font-size': '20px'
@@ -42,6 +45,10 @@ export default {
         name: 'pinaapple',
         price: 256
       })
+      this.linkCss.color = 'blue'
+    },
+    toggle () {
+      this.isPartA = !this.isPartA
     }
   }
 }
