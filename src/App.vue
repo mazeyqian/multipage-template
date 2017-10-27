@@ -4,8 +4,7 @@
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
     <a v-if="isPartA">partA</a>
-    <a v-show="!isPartA">partB</a>
-    <!--v-show只是display:none v-if是消失-->
+    <a v-else>no data</a>
     <button v-on:click="addItem">addItem</button>
     <button v-on:click="toggle">toggle</button>
   </div>
