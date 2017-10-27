@@ -5,8 +5,8 @@
     </ul>
     <a v-if="isPartA">partA</a>
     <a v-else>no data</a>
-    <button v-on:click="addItem">addItem</button>
-    <button v-on:click="toggle">toggle</button>
+    <button @click="addItem">addItem</button>
+    <button @click="toggle">toggle</button>
   </div>
 </template>
 
