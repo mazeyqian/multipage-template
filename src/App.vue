@@ -4,9 +4,9 @@
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
     {{ myVal }}
-    <label><input type="checkbox" name="" value="apple" v-model="myVal">apple</label>
-    <label><input type="checkbox" name="" value="banana" v-model="myVal">banana</label>
-    <label><input type="checkbox" name="" value="orange" v-model="myVal">orange</label>
+    <label><input type="radio" name="" value="1" v-model="myVal">apple</label>
+    <label><input type="radio" name="" value="2" v-model="myVal">banana</label>
+    <label><input type="radio" name="" value="3" v-model="myVal">orange</label>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       hello: 'world',
-      myVal: [],
+      myVal: '',
       list: [
         {
           name: 'apple',
