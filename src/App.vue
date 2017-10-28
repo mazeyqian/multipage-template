@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p is="com-a"></p>
+    <p :is="comToRender"></p>
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
   },
   data () {
     return {
+      comToRender: 'com-a',
       myValue: '',
       hello: '<strong>world</strong>',
       list: [
