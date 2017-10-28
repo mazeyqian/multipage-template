@@ -1,8 +1,9 @@
 <template>
   <div>
     <input type="text" v-model.number="myValue">
-    <p :is="currentView"></p>
-
+    <keep-alive>
+      <p :is="currentView"></p>
+    </keep-alive>
   </div>
 </template>
 
