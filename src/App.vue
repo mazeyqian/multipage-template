@@ -1,9 +1,11 @@
 <template>
   <div>
-    <input type="text" v-model.number="myValue">
-    <keep-alive>
-      <p :is="currentView"></p>
-    </keep-alive>
+    <button @click="show = !show">Toggle</button>
+    <div class="ab">
+      <transition name="fade">
+        <p v-show="show">i am show</p>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -16,39 +18,8 @@ export default {
   },
   data () {
     return {
-      currentView: 'com-a',
-      comToRender: 'com-a',
-      myValue: '',
-      hello: '<strong>world</strong>',
-      list: [
-        {
-          name: 'apple',
-          price: 34
-        },
-        {
-          name: 'banana',
-          price: 56
-        }
-      ]
-    }
-  },
-  computed: {
-    myValueWithoutNum: function () {
-      // 区别
-      return this.myValue.replace(/\d/g, '')
-    }
-  },
-  methods: {
-    getMyValWithoutNum () {
-      return this.myValue.replace(/\d/g, '')
-    },
-    getMyEvent (str) {
-      console.log(str)
-    }
-  },
-  watch: {
-    myValue: function (val, oldVal) {
-      console.log(val, oldVal)
+      hello: 'world',
+      show: true
     }
   }
 }
@@ -58,4 +29,10 @@ export default {
 html {
   height:100%;
 }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s ease-out;
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0;
+  }
 </style>
