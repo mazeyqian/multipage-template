@@ -3,12 +3,8 @@
     <ul>
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
-    <a v-if="isPartA">partA</a>
-    <a v-else>no data</a>
-    <button @click="addItem">addItem</button>
-    <input @keydown.13="onKeyDown">
-    <!--指令修改器-->
-    <comA @my-event="onComaMyEvent"></comA>
+    <input type="text" name="" v-model="myVal">
+    {{ myVal }}
   </div>
 </template>
 
@@ -22,17 +18,7 @@ export default {
   data () {
     return {
       hello: 'world',
-      link: 'http://www.baidu.com',
-      dataA: 123,
-      className: ['red-font', 'big-font'],
-      classA: 'hello',
-      classB: 'world',
-      hasError: false,
-      isPartA: true,
-      linkCss: {
-        'color': 'red',
-        'font-size': '20px'
-      },
+      myVal: '',
       list: [
         {
           name: 'apple',
