@@ -1,6 +1,7 @@
 <template>
   <div>
     <p :is="comToRender"></p>
+    <!--可以根据需求动态渲染组件-->
   </div>
 </template>
 
