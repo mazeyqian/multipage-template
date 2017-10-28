@@ -8,7 +8,9 @@
 
 <script>
   export default {
-    props: ['number-to-do'],
+    props: {
+      'number-to-do': [Number, String, Object]
+    },
     data () {
       return {
         hello: 'i am component a'
