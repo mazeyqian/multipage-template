@@ -1,18 +1,18 @@
 <template>
   <div>
     {{ myVal }}
-    <select v-model="myVal">
-      <option v-for="item in options" :value="item.val">{{ item.name }}</option>
-    </select>
+    <v-select :options="options"></v-select>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import comA from './components/a'
+import vSelect from './components/vSelect'
 export default {
   components: {
-    comA
+    comA,
+    vSelect
   },
   data () {
     return {
