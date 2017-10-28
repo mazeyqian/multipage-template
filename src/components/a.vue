@@ -1,14 +1,14 @@
 <template>
   <div>
     {{ hello }}
-    {{ number }}
+    {{ numberToDo }}
     <button @click="emitMyEvent">emit</button>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['number'],
+    props: ['number-to-do'],
     data () {
       return {
         hello: 'i am component a'

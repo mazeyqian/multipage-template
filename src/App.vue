@@ -1,6 +1,6 @@
 <template>
   <div>
-    <com-a number="5"></com-a>
+    <com-a number-to-do="78"></com-a>
   </div>
 </template>
 
