@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" v-model="myValue">
-    {{ myValueWithoutNum }}
+    {{ getMyValWithoutNum() }}
   </div>
 </template>
 
@@ -25,6 +25,11 @@ export default {
   },
   computed: {
     myValueWithoutNum: function () {
+      return this.myValue.replace(/\d/g, '')
+    }
+  },
+  methods: {
+    getMyValWithoutNum () {
       return this.myValue.replace(/\d/g, '')
     }
   }
