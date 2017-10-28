@@ -3,8 +3,8 @@
     <ul>
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
-    <input type="text" name="" v-model.number="myVal">
-    {{ typeof myVal }}
+    <input type="text" name="" v-model.trim="myVal">
+    {{ myVal }}
   </div>
 </template>
 
