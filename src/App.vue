@@ -33,6 +33,11 @@ export default {
     getMyValWithoutNum () {
       return this.myValue.replace(/\d/g, '')
     }
+  },
+  watch: {
+    myValue: function (val, oldVal) {
+      console.log(val, oldVal)
+    }
   }
 }
 </script>
