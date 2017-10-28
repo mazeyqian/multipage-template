@@ -2,6 +2,7 @@
   <div>
     <input type="text" v-model.number="myValue">
     <com-a :my-value="myValue" @my-event="getMyEvent"></com-a>
+    <!--父组件监听子组件的my-event触发父组件的事件。-->
   </div>
 </template>
 
