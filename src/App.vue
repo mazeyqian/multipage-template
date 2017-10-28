@@ -1,6 +1,7 @@
 <template>
   <div>
-    <com-a number-to-do="78"></com-a>
+    <input type="text" v-model.number="myValue">
+    <com-a :my-value="myValue"></com-a>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ hello }}
-    {{ numberToDo }}
+    {{ myValue }}
     <button @click="emitMyEvent">emit</button>
   </div>
 </template>
@@ -9,7 +9,8 @@
 <script>
   export default {
     props: {
-      'number-to-do': [Number, String, Object]
+      'number-to-do': [Number, String, Object],
+      'my-value': [Number, String]
     },
     data () {
       return {
