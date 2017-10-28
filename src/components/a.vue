@@ -3,7 +3,7 @@
     {{ hello }}
     {{ myValue }}
     <button @click="emitMyEvent">emit</button>
-    <slot></slot>
+    <slot>no slot</slot>
   </div>
 </template>
 
