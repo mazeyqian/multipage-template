@@ -3,8 +3,10 @@
     <ul>
       <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
     </ul>
-    <input type="text" name="" v-model.trim="myVal">
     {{ myVal }}
+    <label><input type="checkbox" name="" value="apple" v-model="myVal">apple</label>
+    <label><input type="checkbox" name="" value="banana" v-model="myVal">banana</label>
+    <label><input type="checkbox" name="" value="orange" v-model="myVal">orange</label>
   </div>
 </template>
 
@@ -18,7 +20,7 @@ export default {
   data () {
     return {
       hello: 'world',
-      myVal: '',
+      myVal: [],
       list: [
         {
           name: 'apple',
