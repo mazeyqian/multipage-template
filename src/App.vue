@@ -1,13 +1,8 @@
 <template>
   <div>
-    <ul>
-      <li v-for="item in list.filter((v, i) =>  i > 0)"> {{ item.name }} - {{ item.price }}</li>
-    </ul>
     {{ myVal }}
     <select v-model="myVal">
-      <option value="0">apple</option>
-      <option value="1">banana</option>
-      <option value="2">orange</option>
+      <option v-for="item in options" :value="item.val">{{ item.name }}</option>
     </select>
   </div>
 </template>
@@ -23,6 +18,20 @@ export default {
     return {
       hello: 'world',
       myVal: 0,
+      options: [
+        {
+          name: 'apple',
+          val: 0
+        },
+        {
+          name: 'banana',
+          val: 1
+        },
+        {
+          name: 'orange',
+          val: 2
+        }
+      ],
       list: [
         {
           name: 'apple',
