@@ -3,7 +3,9 @@
     {{ hello }}
     {{ myValue }}
     <button @click="emitMyEvent">emit</button>
-    <slot>no slot</slot>
+    <slot name="header">no header</slot>
+    <p>content</p>
+    <slot name="header">no footer</slot>
   </div>
 </template>
 
