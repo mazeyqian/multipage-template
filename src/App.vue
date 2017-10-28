@@ -1,13 +1,16 @@
 <template>
   <div>
-    <input type="text" v-model="myValue">
-    {{ getMyValWithoutNum() }}
-    <!--watch可以用来监听操作，只要与某个值相关的操作都可以通知用户-->
+    <p is="com-a"></p>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import ComA from './components/a'
 export default {
+  components: {
+    Vue, ComA
+  },
   data () {
     return {
       myValue: '',
