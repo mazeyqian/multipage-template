@@ -1,10 +1,12 @@
 <template>
   <div>
-    <button @click="toggleCom">Toggle</button>
+    <button @click="show = !show">Toggle</button>
     <div class="ab">
-      <transition name="fade" mode="out-in">
-        <div :is="currentView"></div>
+      <transition name="fade" mode="">
+        <!--<div :is="currentView"></div>-->
         <!--<p v-if="show">i am show</p>-->
+        <p v-if="show" key="0">i am show</p>
+        <p v-else key="1"> not in show</p>
       </transition>
     </div>
   </div>
