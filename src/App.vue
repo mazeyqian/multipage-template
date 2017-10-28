@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     myValueWithoutNum: function () {
-      return this.myValue + ' end'
+      return this.myValue.replace(/\d/g, '')
     }
   }
 }
