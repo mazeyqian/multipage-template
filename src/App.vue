@@ -25,6 +25,7 @@ export default {
   },
   computed: {
     myValueWithoutNum: function () {
+      // 区别
       return this.myValue.replace(/\d/g, '')
     }
   },
