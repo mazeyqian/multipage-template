@@ -1,9 +1,10 @@
 <template>
   <div>
-    <button @click="show = !show">Toggle</button>
+    <button @click="toggleCom">Toggle</button>
     <div class="ab">
       <transition name="fade">
-        <p v-show="show">i am show</p>
+        <div :is="currentView"></div>
+        <!--<p v-if="show">i am show</p>-->
       </transition>
     </div>
   </div>
@@ -12,14 +13,21 @@
 <script>
 import Vue from 'vue'
 import ComA from './components/a'
+import ComB from './components/b'
 export default {
   components: {
-    Vue, ComA
+    Vue, ComA, ComB
   },
   data () {
     return {
       hello: 'world',
-      show: true
+      show: true,
+      currentView: 'com-a'
+    }
+  },
+  methods: {
+    toggleCom () {
+      this.currentView = this.currentView === 'com-a' ? 'com-b' : 'com-a'
     }
   }
 }

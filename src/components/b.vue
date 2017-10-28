@@ -12,7 +12,7 @@
     },
     data () {
       return {
-        hello: 'i am component a'
+        hello: 'i am component b'
       }
     },
     methods: {
