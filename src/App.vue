@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" v-model.number="myValue">
-    <com-a :my-value="myValue"></com-a>
+    <com-a :my-value="myValue" @my-event="getMyEvent"></com-a>
   </div>
 </template>
 
@@ -38,6 +38,9 @@ export default {
   methods: {
     getMyValWithoutNum () {
       return this.myValue.replace(/\d/g, '')
+    },
+    getMyEvent (str) {
+      console.log(str)
     }
   },
   watch: {
