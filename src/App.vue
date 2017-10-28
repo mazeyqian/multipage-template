@@ -2,7 +2,7 @@
   <div>
     <button @click="toggleCom">Toggle</button>
     <div class="ab">
-      <transition name="fade">
+      <transition name="fade" mode="out-in">
         <div :is="currentView"></div>
         <!--<p v-if="show">i am show</p>-->
       </transition>
