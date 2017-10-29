@@ -39,15 +39,7 @@ Vue.directive('css', {
 })
 
 /*
-* 安装插件
-* cnpm install vue-router --save
-* 引用
-* import VueRouter from 'vue-router'
-* 等于
-* var VueRouter = require('vue-router')
-* 使用方法
-* Vue.use(VueRouter)
-* 实例化 有些插件不用实例化 例如：VueResource
-* let router = new VueRouter()
-* 以参数的形式写到根选项里与el methods平级
+* 单文件组件
+* <style scoped 代表局部的，只在这个组件内有效，否则是全局的，父组件也会接收样式。
+*
 * */
