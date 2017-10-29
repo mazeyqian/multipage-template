@@ -1,15 +1,10 @@
 <template>
   <div>
-    <button @click="show = !show">Toggle</button>
-    <div class="ab">
-      <transition
-        @before-enter="beforeEnter"
-        @enter="enter"
-        @leave="leave"
-        :css="false">
-        <p v-show="show" class="animate-p">i am show</p>
-      </transition>
-    </div>
+    <ul>
+      <li v-for="item in myList">{{ item.name }}</li>
+      {{ myVal }}
+      <p v-css>hello world</p>
+    </ul>
   </div>
 </template>
 
@@ -21,40 +16,24 @@ export default {
   components: {
     Vue, ComA, ComB
   },
+  directives: {
+    css: {
+      inserted (el, bind) {
+        let styleObj = bind.value
+        let arr = []
+        for (let key in styleObj) {
+          arr.push(key + ':' + styleObj[key])
+        }
+        arr = arr.join(';')
+
+        el.style.cssText = arr
+      }
+    }
+  },
   data () {
     return {
       hello: 'world',
-      show: true,
-      currentView: 'com-a'
-    }
-  },
-  methods: {
-    toggleCom () {
-      this.currentView = this.currentView === 'com-a' ? 'com-b' : 'com-a'
-    },
-    beforeEnter (el) {
-      $(el).css({
-        left: '-500px',
-        opacity: 0
-      })
-    },
-    enter () {
-      $(el).animate({
-        left: 0,
-        opacity: 1
-      }, {
-        duration: 1500,
-        complete: done
-        })
-    },
-    leave (el, done) {
-      $(el).animate({
-        left: '500px',
-        opacity: 0
-      }, {
-        duration: 1500,
-        complete: done
-      })
+      show: true
     }
   }
 }
@@ -63,16 +42,5 @@ export default {
 <style>
 html {
   height:100%;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease-out;
-}
-.fade-enter, .fade-leave-active {
-  opacity: 0;
-}
-.animate-p{
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 </style>
