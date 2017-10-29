@@ -16,24 +16,15 @@ export default {
   components: {
     Vue, ComA, ComB
   },
-  directives: {
-    css: {
-      inserted (el, bind) {
-        let styleObj = bind.value
-        let arr = []
-        for (let key in styleObj) {
-          arr.push(key + ':' + styleObj[key])
-        }
-        arr = arr.join(';')
-
-        el.style.cssText = arr
-      }
-    }
-  },
   data () {
     return {
-      hello: 'world',
-      show: true
+      myVal: 'world',
+      show: true,
+      myList: [
+        {
+          name: 'mazey'
+        }
+      ]
     }
   }
 }
