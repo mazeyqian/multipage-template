@@ -2,7 +2,7 @@ const { entryList, _resolve, pageList } = require('./utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const path = require('path');
 
-console.log(process.env.NODE_ENV);
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 
 const baseConf = {
   entry: entryList(),

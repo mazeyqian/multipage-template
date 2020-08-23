@@ -12,6 +12,9 @@ const prdConf = merge(baseConf, {
     filename: assetsPath('[name]/[chunkhash].js')
   },
   devtool: prodConfig.devtoolType,
+  module: {
+    rules: []
+  },
   plugins: [
     new UglifyJsPlugin({
       cache: true,
