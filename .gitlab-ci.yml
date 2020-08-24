@@ -1,0 +1,51 @@
+image: node:latest
+
+variables:
+  SASS_BINARY_SITE: http://npm.taobao.org/mirrors/node-sass
+  FSE_BINARY_HOST_MIRROR: https://npm.taobao.org/mirrors/fsevents
+  PUPPETEER_DOWNLOAD_HOST: https://storage.googleapis.com.cnpmjs.org/
+  NPM_CONFIG_DISTURL: https://npm.taobao.org/dist
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+  NPM_CONFIG_AUDIT: "false"
+  NPM_CONFIG_CACHE: .npm-cache
+
+stages:
+  - install
+  - build
+  - deploy
+
+install:
+  stage: install
+  artifacts:
+    paths:
+      - node_modules
+  only:
+    - /^feature_.+$/
+    - develop
+    - preview
+    - master
+  script:
+    - npm ci
+
+build:
+  stage: build
+  artifacts:
+    paths:
+      - ./dist
+  only:
+    - /^feature_.+$/
+    - develop
+    - preview
+    - master
+  script:
+    - bash ./build/shell/ci.sh
+
+deploy:
+  stage: deploy
+  only:
+    - /^feature_.+$/
+    - develop
+    - preview
+    - master
+  script:
+    - bash ./build/shell/deploy.sh

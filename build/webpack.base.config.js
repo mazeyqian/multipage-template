@@ -15,24 +15,16 @@ const baseConf = {
         include: _resolve('../src')
       },
       {
-        test: /\.(le|sa|sc|c)ss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              // publicPath: (resourcePath, context) => {
-              //   console.log(resourcePath, context)
-              //   const ret = path.relative(path.dirname(resourcePath), context) + '/';
-              //   console.log('ret', ret)
-              //   return ret
-              // },
               hmr: process.env.NODE_ENV === 'development'
             }
           },
           'css-loader',
-          // 'postcss-loader',
-          'sass-loader',
-          'less-loader'
+          'sass-loader'
         ]
       }
     ]

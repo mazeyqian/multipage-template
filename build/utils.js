@@ -1,10 +1,16 @@
 const path = require('path');
 const fs = require('fs');
 const prodConfig = require('./conf').build;
-const entryFiles = fs.readdirSync(path.resolve(__dirname, '../src/pages'));
+let entryFiles = fs.readdirSync(path.resolve(__dirname, '../src/pages'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const _resolve = (_path) => path.resolve(__dirname, _path);
 const assetsPath = (_path) => path.posix.join(prodConfig.assetsPath, _path);
+
+if (process.env.PAGE) {
+  entryFiles = [process.env.PAGE];
+}
+
+console.log('更新的页面：', entryFiles);
 
 module.exports = {
   _resolve,
