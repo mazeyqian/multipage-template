@@ -1,6 +1,6 @@
 # multipage-template
 
-Webpack 多页面 & GitLab 增量构建部署模板。
+Webpack 多页面 & GitLab 增量构建部署模板
 
 ## 一、入口文件
 
