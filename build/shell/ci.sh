@@ -24,7 +24,9 @@ echo "$(git diff HEAD~ --name-only | grep "$path")"
         page_name=$(basename $path)
         echo "[CI] Page \"$page_name\" has been modified"
         echo "[CI] Start building"
-        # npm run build # todo $page_name $env $build_env
+        # todo 
+        # 利用 $page_name $env $build_env
+        # 测试环境 NODE_ENV=development
         npx cross-env NODE_ENV=production PAGE=$page_name node build/build.js
         counter=$((counter + 1))
     fi
