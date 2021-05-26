@@ -1,4 +1,4 @@
-const { entryList, _resolve, pageList } = require('./utils');
+const { entryList, _resolve, pageList, version } = require('./utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const path = require('path');
 
@@ -34,7 +34,7 @@ const baseConf = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name]/[chunkhash].css'
+      filename: `[name]/${version}/[chunkhash].css`
     })
   ],
   resolve: {

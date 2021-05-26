@@ -5,6 +5,14 @@ let entryFiles = fs.readdirSync(path.resolve(__dirname, '../src/pages'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const _resolve = (_path) => path.resolve(__dirname, _path);
 const assetsPath = (_path) => path.posix.join(prodConfig.assetsPath, _path);
+const format = require('date-fns/format');
+// 生成版本 20210308.072903
+const genVersion = () => {
+  const d = new Date();
+  const version = format(d, 'yyyyMMdd.HHmmss');
+  return version;
+};
+const version = genVersion();
 
 if (process.env.PAGE) {
   entryFiles = [process.env.PAGE];
@@ -48,5 +56,6 @@ module.exports = {
       );
     });
     return pageList;
-  }
+  },
+  version
 };
