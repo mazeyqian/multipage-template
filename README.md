@@ -28,12 +28,15 @@ Webpack 多页面 & GitLab 增量构建部署模板
 ├── package.json
 └── dist
     ├── page1
-    │   ├── 7ffaa4103cae71b1629a.js
-    │   └── index.html
+    │   ├── index.html
+    │   └── 20210526.194300
+    │       ├── 7ffaa4103cae71b1629a.css
+    │       └── 7ffaa4103cae71b1629a.js
     └── page2
-        ├── 88870cd4b2e554c2a754.css
-        ├── 88870cd4b2e554c2a754.js
-        └── index.html
+        ├── index.html
+        └── 20210526.194300
+            ├── 88870cd4b2e554c2a754.css
+            └── 88870cd4b2e554c2a754.js
 ```
 
 ## 三、增量部署
