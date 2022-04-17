@@ -34,7 +34,7 @@ user=${GITLAB_USER_NAME}
 # Running Stage/notification
 stage=${CI_JOB_STAGE}
 # the Relative of Env and Branch
-envName="社区未知服"
+envName="Unknown Env"
 case ${branch} in
     # Production Branch - begin
     "prod-1")
