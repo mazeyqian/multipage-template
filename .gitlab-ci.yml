@@ -10,29 +10,53 @@ variables:
   NPM_CONFIG_CACHE: .npm-cache
 
 stages:
+  - merge_code
   - install
   - build
   - deploy
+  - after_deploy
+  - at_qa_pm
 
+# Merge Code
+merge_code_to_master:
+  stage: merge_code
+  only:
+    - master
+  script:
+    - bash ./build/notification.sh
+
+# Start Deploy
+start_ci:
+  stage: start_ci
+  only:
+    - /^prod.+$/
+  script:
+    - bash ./build/notification.sh
+
+# Install Dependences
 install:
   stage: install
   artifacts:
     paths:
       - node_modules
   only:
+    - /^(prod|pre|test).+$/
     - /^feature_.+$/
     - develop
     - preview
     - master
   script:
+    - echo 'Start install dependences'
     - npm ci
 
+# Build
 build:
   stage: build
   artifacts:
     paths:
       - ./dist
   only:
+    - /^(prod|pre|test).+$/
     - /^feature_.+$/
     - develop
     - preview
@@ -40,12 +64,30 @@ build:
   script:
     - bash ./build/shell/ci.sh
 
+# Deploy
 deploy:
   stage: deploy
   only:
+    - /^(prod|pre|test).+$/
     - /^feature_.+$/
     - develop
     - preview
     - master
   script:
     - bash ./build/shell/deploy.sh
+
+# Complete Deploy
+after_deploy:
+  stage: after_deploy
+  only:
+    - /^(prod|pre|test).+$/
+  script:
+    - bash ./build/notification.sh
+
+# Notify QA&PM
+at_qa_pm:
+  stage: at_qa_pm
+  only:
+    - /^prod.+$/
+  script:
+    - bash ./build/notification.sh
