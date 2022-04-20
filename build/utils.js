@@ -18,6 +18,18 @@ if (process.env.PAGE) {
   entryFiles = [process.env.PAGE];
 }
 
+// 忽略的文件夹
+const fPages = ['.DS_Store'];
+// 限制文件夹
+const onlyPages = [];
+
+entryFiles = entryFiles.filter((page) => {
+  if (onlyPages.length) {
+    return onlyPages.includes(page);
+  }
+  return !fPages.includes(page);
+});
+
 console.log('更新的页面：', entryFiles);
 
 module.exports = {
@@ -33,13 +45,23 @@ module.exports = {
     });
     return entryList;
   },
+  // webpack 入口 { page1: '~/src/pages/page1/public', page2: '~/src/pages/page2/public' }
+  entryListPublic: () => {
+    const entryList = {};
+    entryFiles.map((page) => {
+      entryList[page] = _resolve(`../src/pages/${page}/public`);
+    });
+    return entryList;
+  },
   // html页面 [HtmlWebpackPlugin {}]
   pageList: () => {
     const pageList = [];
     entryFiles.map((page) => {
       pageList.push(
         new HtmlWebpackPlugin({
-          template: _resolve(`../src/pages/${page}/index.html`),
+          template: ['example-a'].includes(page)
+            ? _resolve('../src/template/example1/index.html')
+            : _resolve(`../src/pages/${page}/index.html`),
           filename: _resolve(`../dist/${page}/index.html`),
           chunks: ['common', page],
           // 压缩配置
@@ -57,5 +79,6 @@ module.exports = {
     });
     return pageList;
   },
-  version
+  version,
+  onlyPages
 };
