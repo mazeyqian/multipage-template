@@ -1,17 +1,15 @@
-English | [简体中文](./README_CN.md)
-
 # multipage-template
 
-Webpack multi-page and GitLab incremental build deployment template.
+Webpack 多页面 & GitLab 增量构建部署模板
 
-## 1 Entry
+## 一、入口文件
 
-Each new standalone page only needs to create a folder under `pages`, but must have two entry files' `index.html` and `index.js`.
+每新建个独立的页面只需要在 `pages` 下面新建一个文件夹即可，但必须拥有两个入口文件 `index.html`、`index.js`。
 
 ```
 ├── package.json
 └── src
-    ├── index.js // pages - You can put common things on the outside.
+    ├── index.js // pages 外部可以放一些通用的东西
     └── pages
         ├── page1
         │   ├── index.js
@@ -22,9 +20,9 @@ Each new standalone page only needs to create a folder under `pages`, but must h
             └── index.html
 ```
 
-## 2 Output
+## 二、出口
 
-Each packaged page is independent.
+构建打包出来的页面结构互相独立。
 
 ```
 ├── package.json
@@ -41,9 +39,9 @@ Each packaged page is independent.
             └── 88870cd4b2e554c2a754.js
 ```
 
-## 3 Deploy
+## 三、增量部署
 
-Use GitLab variable to run out of modified `pages` folder, and use Aliyun OSS CLI [aliyunoss-cli](https://github.com/mazeyqian/aliyunoss-cli) to upload packaged files automatically.
+利用 GitLab 变量跑出有修改的 `pages` 文件夹，构建打包后使用阿里云 OSS 脚手架 [aliyunoss-cli](https://github.com/mazeyqian/aliyunoss-cli) 自动上传到云端。
 
 ```
 search_dir=src/pages
@@ -58,6 +56,6 @@ echo "$(git diff HEAD~ --name-only | grep "$path")"
 done
 ```
 
-## Reference
+## 参考
 
-- [Use GitLab CI/CD and Aliyun CLI to deploy front-end projects](https://blog.mazey.net/1695.html)
+- [使用 GitLab CI/CD 和阿里云 CLI 自动部署前端项目](https://blog.mazey.net/1695.html)
