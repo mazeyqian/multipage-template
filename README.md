@@ -4,7 +4,7 @@ English | [简体中文](./README_CN.md)
 
 Webpack multi-page and GitLab incremental build deployment template.
 
-## 1. Entry
+## Entry
 
 Each new standalone page only needs to create a folder under `pages`, but must have two entry files: `index.html` and `index.js`.
 
@@ -22,7 +22,7 @@ Each new standalone page only needs to create a folder under `pages`, but must h
             └── index.html
 ```
 
-## 2. Output
+## Output
 
 Each packaged page is independent.
 
@@ -41,7 +41,7 @@ Each packaged page is independent.
             └── 88870cd4b2e554c2a754.js
 ```
 
-## 3. Deploy
+## Deploy
 
 Use GitLab variable to run out of modified `pages` folder, and use Aliyun OSS CLI [aliyunoss-cli](https://github.com/mazeyqian/aliyunoss-cli) to upload packaged files automatically.
 
