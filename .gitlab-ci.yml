@@ -23,7 +23,7 @@ merge_code_to_master:
   only:
     - master
   script:
-    - bash ./build/notification.sh
+    - bash ./build/shell/notification.sh
 
 # Start Deploy
 start_ci:
@@ -31,7 +31,7 @@ start_ci:
   only:
     - /^prod.+$/
   script:
-    - bash ./build/notification.sh
+    - bash ./build/shell/notification.sh
 
 # Install Dependences
 install:
@@ -82,7 +82,7 @@ after_deploy:
   only:
     - /^(prod|pre|test).+$/
   script:
-    - bash ./build/notification.sh
+    - bash ./build/shell/notification.sh
 
 # Notify QA&PM
 at_qa_pm:
@@ -90,4 +90,4 @@ at_qa_pm:
   only:
     - /^prod.+$/
   script:
-    - bash ./build/notification.sh
+    - bash ./build/shell/notification.sh
