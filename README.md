@@ -6,7 +6,7 @@ Webpack multi-page and GitLab incremental build deployment template.
 
 ## 1 Entry
 
-Each new standalone page only needs to create a folder under `pages`, but must have two entry files' `index.html` and `index.js`.
+Each new standalone page only needs to create a folder under `pages`, but must have two entry files: `index.html` and `index.js`.
 
 ```
 ├── package.json
