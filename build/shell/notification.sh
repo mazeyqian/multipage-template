@@ -11,6 +11,7 @@ echo "[CI] Start"
 # Robot KEY https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx
 qyApiUrl="https://qyapi.weixin.qq.com/cgi-bin/webhook/send"
 key="xxx"
+bannerImageUrl="https://xxx.jpg"
 # Number of QA&PM xxx xxx
 qaMobile="xxx"
 pmMobile="xxx"
@@ -133,12 +134,12 @@ elif [ ${stage} = "after_deploy" ]; then
                         \"msgtype\": \"news\",
                         \"news\": {
                         \"articles\" : [
-                            {
-                                \"title\" : \"Front-End Updated\",
-                                \"description\" : \"Env: ${envName}\nBranch: ${branch}\nAddress: ${url}\nOperator: ${user}\nContent: ${realTitle}\",
-                                \"url\" : \"${url}/-/pipelines\",
-                                \"picurl\" : \"https://xxx.jpg\"
-                            }
+                                {
+                                    \"title\" : \"Front-End Updated\",
+                                    \"description\" : \"Env: ${envName}\nBranch: ${branch}\nAddress: ${url}\nOperator: ${user}\nContent: ${realTitle}\",
+                                    \"url\" : \"${url}/-/pipelines\",
+                                    \"picurl\" : \"${bannerImageUrl}\"
+                                }
                             ]
                         }
                     }"
