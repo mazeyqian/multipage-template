@@ -43,6 +43,8 @@ Each packaged page is independent.
 
 ## Deploy
 
+### Aliyun OSS
+
 Use GitLab variable to run out of modified `pages` folder, and use Aliyun OSS CLI [aliyunoss-cli](https://github.com/mazeyqian/aliyunoss-cli) to upload packaged files automatically.
 
 ```
@@ -57,6 +59,16 @@ echo "$(git diff HEAD~ --name-only | grep "$path")"
     fi
 done
 ```
+
+### Docker
+
+The page can be visited on `http://localhost:7415` by running the command: `bash DockerBuild.sh`.
+
+## Notification
+
+### WeixinWork
+
+The notification will be opened after filling the file: `build\shell\notification.sh`.
 
 ## Reference
 
