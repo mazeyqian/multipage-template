@@ -1,9 +1,13 @@
 echo "Start Build Docker";
 
 # ProjectName/SubName
-preVersion="multipage/dist";
+preVersion="multipage/template";
 # Port
 visitPort="7415";
+innerPort="80";
+
+# Build Website Assets
+npm run build;
 
 # Stop
 echo "Stop Docker Containers";
@@ -26,7 +30,7 @@ docker build -t ${combinedVersion} . -f ./Dockerfile;
 
 # Run
 echo "Run Docker";
-docker run -d -p ${visitPort}:80 ${combinedVersion};
+docker run -d -p ${visitPort}:${innerPort} ${combinedVersion};
 
 # Notification
 echo "Complete, Visit: http://localhost:${visitPort}";
