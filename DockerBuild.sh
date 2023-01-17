@@ -1,36 +1,36 @@
-echo "Start Build Docker";
+echo "Start Build Docker"
 
 # ProjectName/SubName
-preVersion="multipage/template";
+preVersion="multipage/template"
 # Port
-visitPort="7415";
-innerPort="80";
+visitPort="7415"
+innerPort="80"
 
 # Build Website Assets
-npm run build;
+npm run build
 
 # Stop
-echo "Stop Docker Containers";
-docker ps;
-docker ps|awk '{if (NR!=1) print $1}'| xargs docker stop;
+echo "Stop Docker Containers"
+docker ps
+docker ps|awk '{if (NR!=1) print $1}'| xargs docker stop
 
 # Remove
-echo "Remove Docker Image";
-docker ps -a -q;
-docker rm $(docker ps -a -q);
+echo "Remove Docker Image"
+docker ps -a -q
+docker rm $(docker ps -a -q)
 
 # Generate
-randomVersion=${RANDOM};
+randomVersion=${RANDOM}
 combinedVersion="${preVersion}:v${randomVersion}"
-echo "Generate random version: ${combinedVersion}";
+echo "Generate random version: ${combinedVersion}"
 
 # Build
-echo "Build Docker Image: ${combinedVersion}";
-docker build -t ${combinedVersion} . -f ./Dockerfile;
+echo "Build Docker Image: ${combinedVersion}"
+docker build -t ${combinedVersion} . -f ./Dockerfile
 
 # Run
-echo "Run Docker";
-docker run -d -p ${visitPort}:${innerPort} ${combinedVersion};
+echo "Run Docker"
+docker run -d -p ${visitPort}:${innerPort} ${combinedVersion}
 
 # Notification
-echo "Complete, Visit: http://localhost:${visitPort}";
+echo "Complete, Visit: http://localhost:${visitPort}"
