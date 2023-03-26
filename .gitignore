@@ -16,3 +16,6 @@ selenium-debug.log
 *.njsproj
 *.sln
 yarn-error.log
+
+# Version
+package-lock.json
