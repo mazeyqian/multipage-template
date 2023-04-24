@@ -73,7 +73,10 @@ module.exports = {
             // 去除属性引号
             removeAttributeQuotes: true
           },
-          chunksSortMode: 'auto'
+          chunksSortMode: 'auto',
+          CSS_BASE_URL: process.env.NODE_ENV === 'production' ? '//i.mazey.net/style' : 'http://localhost:5514',
+          JavaScript_BASE_URL:
+            process.env.NODE_ENV === 'production' ? '//i.mazey.net/polestar' : 'http://localhost:5513'
         })
       );
     });
