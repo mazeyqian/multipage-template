@@ -75,8 +75,9 @@ module.exports = {
           },
           chunksSortMode: 'auto',
           CSS_BASE_URL: process.env.NODE_ENV === 'production' ? '//i.mazey.net/style' : 'http://localhost:5514',
+          // serve: http://localhost:9202 local: http://localhost:5513/lib
           JavaScript_BASE_URL:
-            process.env.NODE_ENV === 'production' ? '//i.mazey.net/polestar' : 'http://localhost:5513'
+            process.env.NODE_ENV === 'production' ? '//i.mazey.net/polestar' : 'http://localhost:9202'
         })
       );
     });
