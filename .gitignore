@@ -10,9 +10,12 @@ selenium-debug.log
 
 # Editor directories and files
 .idea
-.vscode
+# .vscode
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 yarn-error.log
+
+# Version
+package-lock.json
