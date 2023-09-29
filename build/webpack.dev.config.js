@@ -12,31 +12,31 @@ const pages = entryFiles.reduce((sum, pagePath) => {
 }, '');
 const devConf = merge(baseConf, {
   output: {
-    publicPath: '',
+    publicPath: '/',
     filename: '[name].[hash].js'
   },
   devtool: devConfig.devtool,
   //
   devServer: {
-    clientLogLevel: 'warning',
-    inline: true,
+    // clientLogLevel: 'warning',
+    // inline: true,
     // hot: true,
     open: false,
     host: devConfig.host,
     port: devConfig.port,
-    compress: true,
-    overlay: {
-      errors: true,
-      warnings: false
-    },
-    quiet: true
+    compress: true
+    // overlay: {
+    //   errors: true,
+    //   warnings: false
+    // },
+    // quiet: true
   },
   module: {
     rules: []
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
     new FriendlyErrorsPlugin({
       // 编译成功提示！
       compilationSuccessInfo: {
